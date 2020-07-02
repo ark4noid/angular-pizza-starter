@@ -1,8 +1,22 @@
 <h2>Login</h2>
-<form (ngSubmit)="onSubmit()" #form="ngForm">
-  <input type="text" name="email" [(ngModel)]="model.email" required email #email="ngModel">
-  <p *ngIf="email.invalid">No válido</p>
-  <input type="password" name="password" [(ngModel)]="model.password" required #password="ngModel">
-  <p *ngIf="password.invalid">No válido</p>
-  <button>Login</button>
+<form (ngSubmit)="onSubmit()" class="vertical login" #form="ngForm">
+  <div *ngIf="loginError" class="horizontal login__alert" role="alert">
+    <mat-icon>error</mat-icon>
+    {{loginError}}
+  </div>
+  <mat-form-field class="login__field" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput type="text" name="email" [(ngModel)]="model.email" required email #email="ngModel">
+    <mat-error *ngIf="email.invalid">
+      {{errorsService.get(email, errors.email)}}
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="login__field" appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" name="password" [(ngModel)]="model.password" required #password="ngModel">
+    <mat-error *ngIf="password.invalid">
+      {{errorsService.get(password, errors.password)}}
+    </mat-error>
+  </mat-form-field>
+  <button mat-raised-button color="primary">Login</button>
 </form>

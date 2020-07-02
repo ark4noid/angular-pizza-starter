@@ -12,8 +12,6 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 })
 export class RegisterComponent {
   @ViewChild('form') form: FormGroup;
-  @ViewChild('email') email: FormControl;
-  @ViewChild('name') name: FormControl;
 
   model = {
     email: '',
@@ -52,7 +50,7 @@ export class RegisterComponent {
       .catch(this.onRegisterError);
   }
   private onRegisterSuccess = () => {
-    this.router.navigate(['/public/login'], { replaceUrl: true });
+    this.router.navigateByUrl('/public/login', { replaceUrl: true });
   }
   private onRegisterError = (res: HttpErrorResponse) => {
     if (res.status === 400) {

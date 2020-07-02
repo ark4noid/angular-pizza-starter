@@ -1,9 +1,9 @@
-import { Component, ViewChild, ViewChildren, QueryList } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ErrorsService } from '../../core/validation/errors.service';
 import { RegisterService } from './register.service';
 import { Router } from '@angular/router';
-import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'ps-register',
@@ -37,7 +37,7 @@ export class RegisterComponent {
 
   constructor(
     public errorsService: ErrorsService,
-    private registerServie: RegisterService,
+    private registerService: RegisterService,
     private router: Router
   ) { }
 
@@ -45,7 +45,7 @@ export class RegisterComponent {
     if (this.form.invalid) {
       return;
     }
-    this.registerServie.register(this.model)
+    this.registerService.register(this.model)
       .then(this.onRegisterSuccess)
       .catch(this.onRegisterError);
   }

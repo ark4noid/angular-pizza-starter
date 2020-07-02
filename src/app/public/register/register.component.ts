@@ -52,9 +52,13 @@ export class RegisterComponent {
       .catch(this.onRegisterError);
   }
   private onRegisterSuccess = () => {
-    this.router.navigate(['/public/login'], {replaceUrl: true});
+    this.router.navigate(['/public/login'], { replaceUrl: true });
   }
   private onRegisterError = (res: HttpErrorResponse) => {
-    this.registerError = res.error.error;
+    if (res.status === 400) {
+      this.registerError = res.error.error;
+    } else {
+      this.registerError = 'Unexpected error, try again later.';
+    }
   }
 }

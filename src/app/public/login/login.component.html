@@ -1,0 +1,8 @@
+<h2>Login</h2>
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+  <input type="text" name="email" [(ngModel)]="model.email" required email #email="ngModel">
+  <p *ngIf="email.invalid">No válido</p>
+  <input type="password" name="password" [(ngModel)]="model.password" required #password="ngModel">
+  <p *ngIf="password.invalid">No válido</p>
+  <button>Login</button>
+</form>

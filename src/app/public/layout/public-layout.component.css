@@ -6,6 +6,8 @@
   text-decoration: none;
   color: var(--ps-color-on-primary);
   margin-right: var(--ps-margin-small);
+  display: flex;
+  align-items: center;
 }
 
 .toolbar__link--active {

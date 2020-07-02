@@ -3,6 +3,7 @@ import { PublicComponent } from './public.component';
 import { PublicRoutingModule } from './public.routing';
 import { PublicLayoutComponent } from './layout/public-layout.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
   imports: [
     PublicRoutingModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule
   ]
 })
 export class PublicModule { }

@@ -9,6 +9,11 @@ const routes: Routes = [
     component: PublicComponent,
     children: [
       {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'login'
+      },
+      {
         path: 'register',
         loadChildren: () => import('./register/register.module').then(m => m.RegisterModule),
       },
@@ -17,6 +22,10 @@ const routes: Routes = [
         loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
       }
     ]
+  },
+  {
+    path: '**',
+    redirectTo: 'login'
   }
 ];
 

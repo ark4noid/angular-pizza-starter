@@ -6,18 +6,18 @@
   align-items: center;
 }
 
-.register {
+.login {
   width: 20%;
   border: 1px solid var(--ps-color-primary);
   border-radius: 3%;
   padding: var(--ps-padding-medium);
 }
 
-.register__field {
+.login__field {
   margin-bottom: 1rem;
 }
 
-.register__alert {
+.login__alert {
   padding: var(--ps-padding-medium);
   background-color: var(--ps-color-error);
   color: var(--ps-color-on-primary);

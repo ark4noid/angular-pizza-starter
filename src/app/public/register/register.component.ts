@@ -1,9 +1,9 @@
-import { Component, ViewChild, ViewChildren, QueryList } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ErrorsService } from '../../core/validation/errors.service';
 import { RegisterService } from './register.service';
 import { Router } from '@angular/router';
-import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'ps-register',
@@ -12,8 +12,6 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 })
 export class RegisterComponent {
   @ViewChild('form') form: FormGroup;
-  @ViewChild('email') email: FormControl;
-  @ViewChild('name') name: FormControl;
 
   model = {
     email: '',
@@ -39,7 +37,7 @@ export class RegisterComponent {
 
   constructor(
     public errorsService: ErrorsService,
-    private registerServie: RegisterService,
+    private registerService: RegisterService,
     private router: Router
   ) { }
 
@@ -47,14 +45,18 @@ export class RegisterComponent {
     if (this.form.invalid) {
       return;
     }
-    this.registerServie.register(this.model)
+    this.registerService.register(this.model)
       .then(this.onRegisterSuccess)
       .catch(this.onRegisterError);
   }
   private onRegisterSuccess = () => {
-    this.router.navigate(['/public/login'], {replaceUrl: true});
+    this.router.navigateByUrl('/public/login', { replaceUrl: true });
   }
   private onRegisterError = (res: HttpErrorResponse) => {
-    this.registerError = res.error.error;
+    if (res.status === 400) {
+      this.registerError = res.error.error;
+    } else {
+      this.registerError = 'Unexpected error, try again later.';
+    }
   }
 }

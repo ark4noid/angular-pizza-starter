@@ -1,19 +1,19 @@
-import { Component} from '@angular/core'
-import {MatSidenavModule} from '@angular/material/sidenav';
-
+import { Component, Input, Output, EventEmitter} from '@angular/core';
 @Component ({
     selector: 'ps-menu',
     templateUrl: './menu.component.html',
-    styleUrls: ['./menu.component.html']
+    styleUrls: ['./menu.component.css']
 })
+
 export class MenuComponent {
-    @ViewChild('sidenav') sidenav: MatSidenavModule;
-
-  reason = '';
-
-  close(reason: string) {
-    this.reason = reason;
-    this.sidenav.close();
+  @Input() opened = true;
+  @Output() openedChange = new EventEmitter<boolean>();
+  menuOptions = [
+    {link: 'pizzas/list', text: 'Show Pizzas', icon: 'local_pizza'},
+    {link: 'pizzas/add', text: 'Add Pizza', icon: 'add_circle'},
+  ];
+  close(){
+    this.opened = false;
+    this.openedChange.emit(false);
   }
- 
 }

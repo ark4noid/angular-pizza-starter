@@ -4,4 +4,6 @@ import { Component } from '@angular/core';
   selector: 'ps-private',
   templateUrl: './private.component.html'
 })
-export class PrivateComponent {}
+export class PrivateComponent {
+  opened = true;
+}

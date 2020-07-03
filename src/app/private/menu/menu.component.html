@@ -1,14 +1,10 @@
-<mat-sidenav-container
-    class="container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
-  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
-<!--     incorporar aquí la imagen
+<mat-sidenav-container class="menu" (backdropClick)="close()">
+  <mat-sidenav class="menu__nav" [opened]="opened" >
+    <!--     incorporar aquí la imagen
     incorporar los links a pizza list y a crear pizza -->
-    <p><button mat-button (click)="close('toggle button')">colocar al final "volver a menu" o quitar</button></p>
+    <a href="#" (click)="close()">Hola</a>
   </mat-sidenav>
   <mat-sidenav-content>
-    <p><button mat-button (click)="sidenav.open()">icono menu</button>
-    </p>
+    <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-<div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>

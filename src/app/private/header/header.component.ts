@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
 
 @Component({
   selector: 'ps-header',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
 })
 
 export class HeaderComponent {
+
+  @Output() menuCLick = new EventEmitter<boolean>();
+  didVote = false;
+
+  vote(agreed: boolean) {
+    this.menuCLick.emit(agreed);
+    this.didVote = true;
+  }
 
   }
 

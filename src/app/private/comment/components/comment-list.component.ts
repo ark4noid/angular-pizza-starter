@@ -11,7 +11,9 @@ interface Comment {
   };
 }
 @Component({
-  selector: 'ps-commnet-list'
+  selector: 'ps-commnent-list',
+  templateUrl: '../components/comment-list.html',
+  styleUrls:  ['../components/comment-list.css']
 })
 export class CommentListComponent {
   @Input() comments: Comment[] = [];

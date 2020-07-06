@@ -9,7 +9,7 @@ export class PrivateComponent {
   //pruebas
   comments = [
     {text: 'hola'},
-    {text: 'adiós'},
+    {text: 'adios'},
   ];
   onMenuClick(){
     this.opened = !this.opened;

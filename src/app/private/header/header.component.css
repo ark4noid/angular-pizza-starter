@@ -1,0 +1,9 @@
+.toolbar{
+    align-items: center;
+}
+.toolbar__title{
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+
+}

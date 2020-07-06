@@ -1,1 +1,10 @@
-<ps-commnent-list>ComentList</ps-commnent-list>
+<div>
+    <li *mgFor="lista de comentarios">
+        <p>{{comment.user.name}}</p>
+        <div>
+            <p>{{comment.text}}</p>
+            <p>{{comment.created}}</p>
+            <p>{{comment.score}}</p>
+        </div>
+    </li>
+</div>

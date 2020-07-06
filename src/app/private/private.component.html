@@ -1,6 +1,6 @@
-<ps-menu [(opened)]="opened">
-  <ps-header (menuClick)="onMenuClick()"></ps-header>
+<ps-menu [(opened)]="opened"> <!-- @imput (definición) y evento -->
+  <ps-header (menuClick)="onMenuClick()"></ps-header> <!--  evento -->
   <router-outlet></router-outlet>
-  <ps-comment-list comments="[]"></ps-comment-list>
+  <ps-comment-list [comments]="comments"></ps-comment-list> <!-- el @imput se llama comments= [] -->
 </ps-menu>
 

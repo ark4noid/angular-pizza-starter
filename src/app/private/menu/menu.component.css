@@ -6,6 +6,9 @@
   right: 0;
   background-color: var(--ps-color-background);
 }
+.menu__img{
+  width: 100%;
+}
 .menu__nav {
   width: 20%;
 }

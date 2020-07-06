@@ -1,1 +1,6 @@
-<ps-commnent-list>ComentList</ps-commnent-list>
+<ul>
+  <li *ngFor="let comment of comments">
+    {{comment.text}}
+    {{comment.user.name}}
+  </li>
+</ul>

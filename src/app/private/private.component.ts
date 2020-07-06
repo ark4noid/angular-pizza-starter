@@ -6,6 +6,11 @@ import { Component } from '@angular/core';
 })
 export class PrivateComponent {
   opened = false;
+  // para hacer pruebas
+  comments = [
+    {text: 'Hola', user: {name: 'pepe'}},
+    {text: 'Adios',  user: {name: 'pepe'}},
+  ];
   onMenuClick(){
     this.opened = !this.opened;
   }

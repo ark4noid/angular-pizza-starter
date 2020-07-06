@@ -1,4 +1,5 @@
 <ps-menu [(opened)]="opened">
   <ps-header (menuClick)="onMenuClick()"></ps-header>
   <router-outlet></router-outlet>
+  <ps-comment-list [comments]="comments"></ps-comment-list>
 </ps-menu>

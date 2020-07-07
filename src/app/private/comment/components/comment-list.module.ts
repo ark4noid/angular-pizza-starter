@@ -9,7 +9,7 @@ import { CommentListComponent } from './comment-list.component';
     imports: [
         CommonModule    //para poder utilizar el *ngFor
     ],
-    exports: [ 
+    exports: [
         CommentListComponent
     ]
 })

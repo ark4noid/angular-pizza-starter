@@ -8,8 +8,8 @@ export class PrivateComponent {
   opened = false;
   //pruebas
   comments = [
-    {text: 'hola'},
-    {text: 'adios'},
+    {text: 'hola', user: { name: 'pepe'}},
+    {text: 'adios', user: {name: 'pepe'}},
   ];
   onMenuClick(){
     this.opened = !this.opened;

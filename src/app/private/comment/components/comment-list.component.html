@@ -1,29 +1,28 @@
-<ul>
-    <li *ngFor="let comment of comments">
-     {{comment.user.name} 
-     <div class = "comment_list">
-         {{comment.score}}
-         {{comment.text}}
-         {{comment.create}}
-     </div>
-    </li>
-</ul>
+<mat-accordion>
+  <mat-expansion-panel hideToggle *ngFor="let comment of comments">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <!--
+          estrellas:
+          una array a partir de la puntuacion con Array.from
+          *ngFor por esa array y vas pintando mat-icon
+          acuerdate de importar el modulo del MatIcon
 
-      <!-- <mat-expansion-panel hideToggle>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Usuario
-          </mat-panel-title>
-          <mat-panel-description>
-            score
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <p>comentario</p>
-        <p>date</p>
-      </mat-expansion-panel>
-      <mat-expansion-panel (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false">
-        
-        <p>I'm visible because I am open</p>
-      </mat-expansion-panel>
-    </mat-accordion> -->
+          si te sale mira  a ver si puedes poner las estrellas puestas en negro
+          y las que faltan hasta 10 en blanco
+        -->
+        {{comment.score}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{comment.user.name}}
+        <!--
+          utiliza la pipe date para formatearla correectamente dia/mes/año
+          esa pipe esta en el modulo de angular CommonModule no tienes que
+          implementarla
+        -->
+        {{comment.created}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    {{comment.text}}
+  </mat-expansion-panel>
+</mat-accordion>

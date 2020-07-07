@@ -5,7 +5,7 @@ interface Comment {  //pq interface no class donde recoger todos los datos de la
     id: string,
     name: string
   };
-  id: string,
+  id: string;
   score: number;
   text: string;
   created: string;
@@ -19,8 +19,3 @@ interface Comment {  //pq interface no class donde recoger todos los datos de la
 export class CommentListComponent {
   @Input() comments: Comment [] = []; //recoge los arrays de comment pero ¿de dónde??
 }
-
-/* export class ExpansionOverviewExample {
-  panelOpenState = false;
-}
- */

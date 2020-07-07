@@ -6,11 +6,7 @@ import { Component } from '@angular/core';
 })
 export class PrivateComponent {
   opened = false;
-  //pruebas
-  comments = [
-    {text: 'hola', user: { name: 'pepe'}},
-    {text: 'adios', user: {name: 'pepe'}},
-  ];
+  comments = [];  //imagino que aquí debe recoger todos los datos del array del comment-list
   onMenuClick(){
     this.opened = !this.opened;
   }

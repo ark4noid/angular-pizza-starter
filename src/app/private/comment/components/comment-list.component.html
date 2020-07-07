@@ -1,6 +1,29 @@
 <ul>
     <li *ngFor="let comment of comments">
-     {{comment.text}} 
-     {{comment.user.name}}   
+     {{comment.user.name} 
+     <div class = "comment_list">
+         {{comment.score}}
+         {{comment.text}}
+         {{comment.create}}
+     </div>
     </li>
 </ul>
+
+      <!-- <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Usuario
+          </mat-panel-title>
+          <mat-panel-description>
+            score
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>comentario</p>
+        <p>date</p>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        
+        <p>I'm visible because I am open</p>
+      </mat-expansion-panel>
+    </mat-accordion> -->

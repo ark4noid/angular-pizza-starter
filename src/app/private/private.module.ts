@@ -9,7 +9,6 @@ import { HeaderComponent } from './header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { CommentListModule } from './comment/components/comment-list.module';
 
 @NgModule({
   declarations: [PrivateComponent, HeaderComponent],
@@ -20,7 +19,6 @@ import { CommentListModule } from './comment/components/comment-list.module';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    CommentListModule
   ],
   providers: [
     APIInterceptorProvider,

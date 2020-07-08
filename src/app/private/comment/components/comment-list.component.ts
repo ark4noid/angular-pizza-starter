@@ -1,5 +1,4 @@
 import { Component, Input } from "@angular/core";
-import { __importDefault } from 'tslib';
 
 interface Comment {  //pq interface no class donde recoger todos los datos de la lista?
   user: {
@@ -12,31 +11,54 @@ interface Comment {  //pq interface no class donde recoger todos los datos de la
   created: string;
 }
 
+const icons = {
+  light: 'star_border',
+  dark: 'star'
+};
+
+const classes = {
+  light: 'comment__icon comment__icon--light',
+  dark: 'comment__icon comment__icon--dark'
+};
 @Component({
   selector: 'ps-comment-list',
   templateUrl: './comment-list.component.html',
-  styleUrls:  ['./comment-list.component.css']
+  styleUrls: ['./comment-list.component.css']
 })
 export class CommentListComponent {
-  @Input() comments: Comment [] = []; 
-  /* getStars(score) {
-    //const score = star  //hay algún modo de hacer algo así?
-    const diff = 10 - score;
-    return [from({length:10}, (_,i) => i <= diff ? 'black' : 'white')] 
-    //función que recibe cada elemento del array y su índice
-    //como elemento barra baja
-  }
- */
- /*  getStars(score){
+  @Input() comments: Comment[] = [];
+  getStars(score) {
+    const limit = 10;
+    const diff = limit - score;
     const stars = [];
-    const limt = 10;
-    const diff = limt - score;
-    for (let i = 0; i < limt; i++){ 
-      if (i<diff) {stars.push('black')}
-      else {stars.push ('white')}    
+    for (let i = 0; i < limit; i++) {
+      if (i < diff) {
+        stars.push('light');
+      } else {
+        stars.push('dark');
+      }
     }
-    return stars
-    } */
+    return stars;
+  }
+  getStars2(score) {
+    const limit = 10;
+    const diff = limit - score;
+    const stars = [];
+    for (let i = limit - 1; i >= 0; i--) {
+      const type = i < diff ? 'light' : 'dark';
+      stars.push({
+        icon: icons[type],
+        className: classes[type]
+      });
+    }
+    return stars;
+  }
+  getIconClasses(color) {
+    return `comment__icon comment__icon--${color}`;
+  }
+  getIcon(color) {
+    return color === 'dark' ? 'star' : 'star_border';
+  }
 }
 // no sería más fácil decir que number es igual a icon y q se pinten???
 //algo así como const score= star o algo para cambiar

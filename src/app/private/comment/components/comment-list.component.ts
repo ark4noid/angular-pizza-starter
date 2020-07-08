@@ -21,7 +21,7 @@ export class CommentListComponent {
   @Input() comments: Comment [] = []; 
   /* getStars(score) {
     //const score = star  //hay algún modo de hacer algo así?
-    const diff = 10 - score;
+    const diff = 5 - score;
     return [from({length:10}, (_,i) => i <= diff ? 'black' : 'white')] 
     //función que recibe cada elemento del array y su índice
     //como elemento barra baja
@@ -29,7 +29,7 @@ export class CommentListComponent {
  */
  /*  getStars(score){
     const stars = [];
-    const limt = 10;
+    const limt = 5;
     const diff = limt - score;
     for (let i = 0; i < limt; i++){ 
       if (i<diff) {stars.push('black')}

@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input } from '@angular/core';
 
 interface Comment {  //pq interface no class donde recoger todos los datos de la lista?
   user: {

@@ -1,0 +1,28 @@
+.comment__list {
+    width: 80%;
+    margin: auto;
+
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: right;
+    border: 1px solid var(--ps-color-primary);
+    border-radius: 3%;
+    padding: var(--ps-padding-medium);
+}
+.comment__icon {
+    color: var(--ps-color-primary);
+    margin-left: -1px;
+    font-size: 20px;
+}
+.comment__icon--light {
+  color: var(--ps-color-primary--light);
+}
+.comment__icon--dark {
+  color: var(--ps-color-primary--dark);
+}
+.comment__date {
+    text-align-last: right;
+
+}

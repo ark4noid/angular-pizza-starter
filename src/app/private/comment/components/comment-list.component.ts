@@ -26,15 +26,6 @@ const classes = {
   styleUrls: ['./comment-list.component.css']
 })
 export class CommentListComponent {
-<<<<<<< HEAD
-  @Input() comments: Comment [] = []; 
-  /* getStars(score) {
-    //const score = star  //hay algún modo de hacer algo así?
-    const diff = 5 - score;
-    return [from({length:10}, (_,i) => i <= diff ? 'black' : 'white')] 
-    //función que recibe cada elemento del array y su índice
-    //como elemento barra baja
-=======
   @Input() comments: Comment[] = [];
   getStars(score) {
     const limit = 10;
@@ -48,26 +39,17 @@ export class CommentListComponent {
       }
     }
     return stars;
->>>>>>> 9931285eb054b4d12b77485b6954b9a85d3614b2
   }
   getStars2(score) {
     const limit = 10;
     const diff = limit - score;
     const stars = [];
-<<<<<<< HEAD
-    const limt = 5;
-    const diff = limt - score;
-    for (let i = 0; i < limt; i++){ 
-      if (i<diff) {stars.push('black')}
-      else {stars.push ('white')}    
-=======
     for (let i = limit - 1; i >= 0; i--) {
       const type = i < diff ? 'light' : 'dark';
       stars.push({
         icon: icons[type],
         className: classes[type]
       });
->>>>>>> 9931285eb054b4d12b77485b6954b9a85d3614b2
     }
     return stars;
   }

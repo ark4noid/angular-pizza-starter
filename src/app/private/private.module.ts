@@ -9,7 +9,6 @@ import { HeaderComponent } from './header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { CommentFormModule } from './comment/components/comment-form.module';
 import { LogoutModule } from './logout/logout.module';
 
 
@@ -22,7 +21,6 @@ import { LogoutModule } from './logout/logout.module';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    CommentFormModule,
     LogoutModule
   ],
   providers: [

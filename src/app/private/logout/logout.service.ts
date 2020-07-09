@@ -8,6 +8,8 @@ export class LogoutService extends HTTPService {
     super(http, 'logout');
   }
   logout(){
-    return this.http.post(this.resolve(), null).toPromise();
+    return this.http.post(this.resolve(), null, {
+      withCredentials: true,
+    }).toPromise();
   }
 }

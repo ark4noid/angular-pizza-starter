@@ -9,6 +9,10 @@ import { HeaderComponent } from './header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { LogoutModule } from './logout/logout.module';
+import { RetryInterceptorProvider } from './services/http/retry.interceptor';
+import { RefreshService } from './services/http/refresh.service';
+
 
 @NgModule({
   declarations: [PrivateComponent, HeaderComponent],
@@ -19,10 +23,13 @@ import { MatIconModule } from '@angular/material/icon';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    LogoutModule
   ],
   providers: [
     APIInterceptorProvider,
-    AuthInterceptorProvider
+    AuthInterceptorProvider,
+    RetryInterceptorProvider,
+    RefreshService
   ]
 })
 export class PrivateModule {}

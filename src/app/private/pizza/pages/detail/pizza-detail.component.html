@@ -1,0 +1,7 @@
+<div *ngIf="pizza">
+  <ps-pizza-info [pizza]="pizza"></ps-pizza-info>
+  <ps-comment-form class="pizza-detail__form" [pizza]="pizza.id"></ps-comment-form>
+  <ps-comment-list [comments]="pizza.comments"></ps-comment-list>
+</div>
+
+<div *ngIf="!pizza">Loading...</div>

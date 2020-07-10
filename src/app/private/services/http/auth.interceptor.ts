@@ -1,11 +1,12 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from '../../../core/auth/auth.service';
+import { RefreshService } from './refresh.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private refreshService: RefreshService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     const authReq = req.clone({

@@ -1,0 +1,18 @@
+<h2>formulario</h2>
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+  <mat-form-field>
+    <mat-label>Comentario</mat-label>
+    <textarea matInput name="text" [(ngModel)]="model.text" #text="ngModel" required></textarea>
+    <mat-error *ngIf="text.invalid">
+      {{errorsService.get(text, errors.text)}}
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Puntuación</mat-label>
+    <input matInput type="number" name="score" [(ngModel)]="model.score" #score="ngModel" required psMin="0" psMax="10">
+    <mat-error *ngIf="score.invalid">
+      {{errorsService.get(score, errors.score)}}
+    </mat-error>
+  </mat-form-field>
+  <button mat-raised-button color="primary">Crear</button>
+</form>

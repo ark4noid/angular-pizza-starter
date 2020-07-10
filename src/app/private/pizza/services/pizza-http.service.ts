@@ -11,4 +11,12 @@ export class PizzaHttpService extends HTTPService {
     getAll() {
         return this.http.get(this.resolve()).toPromise()
     }
+    get(id){
+      return this.http.get(this.resolve(id), {
+        params: {
+          include: ['comments', 'comments.user', 'ingredients'].join(',')
+        }
+      }).toPromise();
+    }
 }
+

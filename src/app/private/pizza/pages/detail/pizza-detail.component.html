@@ -1,0 +1,7 @@
+<div *ngIf="pizza">
+  <h2>{{pizza.name}}</h2>
+  <ps-comment-form [pizza]="pizza.id"></ps-comment-form>
+  <ps-comment-list [comments]="pizza.comments"></ps-comment-list>
+</div>
+
+<div *ngIf="!pizza">Loading...</div>

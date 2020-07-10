@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { FormGroup} from '@angular/forms';
+import { NgForm} from '@angular/forms';
 import { LoginService } from './login.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from 'src/app/core/auth/auth.service';
@@ -12,7 +12,7 @@ import { ErrorsService } from 'src/app/core/validation/errors.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  @ViewChild('form') form: FormGroup;
+  @ViewChild('form') form: NgForm;
   model = {
     email: '',
     password: ''

@@ -1,0 +1,15 @@
+<h2 class='pizzaList'>PizzaList</h2>
+<ul>
+    <li *ngFor='let pizza of pizzas'>
+        
+           <mat-card>
+               <mat-card-header>
+                   <mat-card-title>
+                       {{pizza.name}}
+                   </mat-card-title>
+               </mat-card-header>
+               <img class='imagenes' mat-card-image [src]="getImg(pizza)" alt="">
+           </mat-card> 
+        
+    </li>
+</ul>

@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: PrivateComponent,
-    children: [
+    children: [ 
+      {
+        path:'pizzas',
+        loadChildren:()=>import('./pizza/pizza.module').then((m)=>m.PizzaModule)
+      }
     ]
   }
 ];

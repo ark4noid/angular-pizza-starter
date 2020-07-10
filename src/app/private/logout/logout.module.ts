@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
   ],
   imports: [
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
   ],
   exports: [
     LogoutComponent

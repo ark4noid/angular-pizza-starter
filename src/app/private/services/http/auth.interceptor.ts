@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from '../../../core/auth/auth.service';
-import { RefreshService } from './refresh.service';
+import { RefreshService } from 'src/app/core/auth/refresh.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {

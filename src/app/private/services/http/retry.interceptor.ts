@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HTTP_INTERCEPTORS, HttpEvent } from '@angular/common/http';
 import { AuthService } from '../../../core/auth/auth.service';
-import { RefreshService } from './refresh.service';
 import { Router } from '@angular/router';
 import { catchError, switchMap } from 'rxjs/operators';
 import { throwError, Observable } from 'rxjs';
+import { RefreshService } from 'src/app/core/auth/refresh.service';
 @Injectable()
 export class RetryInterceptor implements HttpInterceptor {
 

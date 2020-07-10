@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { LogoutModule } from './logout/logout.module';
 import { RetryInterceptorProvider } from './services/http/retry.interceptor';
-import { RefreshService } from './services/http/refresh.service';
+import { RefreshService } from '../core/auth/refresh.service';
 
 
 @NgModule({

@@ -10,6 +10,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { LogoutModule } from './logout/logout.module';
+import { RetryInterceptorProvider } from './services/http/retry.interceptor';
+import { RefreshService } from './services/http/refresh.service';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { LogoutModule } from './logout/logout.module';
   ],
   providers: [
     APIInterceptorProvider,
-    AuthInterceptorProvider
+    AuthInterceptorProvider,
+    RetryInterceptorProvider,
+    RefreshService
   ]
 })
 export class PrivateModule {}

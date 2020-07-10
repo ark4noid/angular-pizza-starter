@@ -8,6 +8,8 @@ export class LoginService extends HTTPService {
     super(http, 'login');
   }
   login(model){
-    return this.http.post(this.resolve(), model).toPromise();
+    return this.http.post(this.resolve(), model, {
+      withCredentials: true
+    }).toPromise();
   }
 }

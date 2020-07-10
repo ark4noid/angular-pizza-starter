@@ -4,15 +4,22 @@ import { CommentFormModule } from 'src/app/private/comment/components/comment-fo
 import { CommentListModule } from 'src/app/private/comment/components/comment-list.module';
 import { PizzaDetailRoutingModule } from './pizza-detail.routing';
 import { CommonModule } from '@angular/common';
+import { PizzaInfoComponent } from './pizza-info.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
-    declarations: [PizzaDetailComponent],
-    imports: [
-      CommentFormModule,
-      CommentListModule,
-      PizzaDetailRoutingModule,
-      CommonModule
-    ]
+  declarations: [PizzaDetailComponent, PizzaInfoComponent],
+  imports: [
+    CommentFormModule,
+    CommentListModule,
+    MatCardModule,
+    MatListModule,
+    MatDividerModule,
+    PizzaDetailRoutingModule,
+    CommonModule
+  ]
 })
 
-export class PizzaDetailModule {}
+export class PizzaDetailModule { }

@@ -1,68 +1,41 @@
-import { Component, ViewChild } from '@angular/core';
-import { MatFormField } from '@angular/material/form-field';
-import { FormGroup, FormControl } from '@angular/forms';
-import { CommentService } from 
-
-interface Comment {  //se llama igual que en el caso de comment-list ¿puede ser?
-    id: string;
-    score: number;
-    text: string
-};
+import { Component, Input, ViewChild } from '@angular/core';
+import { CommentService } from '../services/commnet-http.service';
+import { NgForm } from '@angular/forms';
+import { ErrorsService } from 'src/app/core/validation/errors.service';
 
 @Component({
-    selector: 'ps-comment-form',
-    templateUrl: './comment-form.component.html',
-    styleUrls: ['./comment-form.component.css']
-
+  selector: 'ps-comment-form',
+  templateUrl: './comment-form.component.html',
+  styleUrls: ['./comment-form.component.css'],
+  providers: [CommentService]
 })
-/* export class CommentFormComponent{
-     @ViewChild('form') form: NgForm;
-    model : Comment = {
-        id: '',
-        score: '',
-        text: ''
-    };
-    onsubmit(form){
-        imput(this.module, this.form);
+export class CommentFormComponent {
+  @ViewChild('form') form: NgForm;
+  @Input() pizza = '';
+  model = {
+    text: '',
+    score: ''
+  };
+  errors = {
+    text: {
+      required: 'El texto es requerido'
+    },
+    score: {
+      required: 'La puntuación es requerida',
+      min: 'La puntuación debe ser igual o mayor a 0',
+      max: 'La puntuación debe ser menor que 10'
     }
-    showCommentFormError(comment){
-        return 
-    }  */
-export class CommentFormComponent{
-    @ViewChild('form') form: FormGroup;
-    @ViewChild('id') id: FormControl;
-    @ViewChild('score') score: FormControl;
-    @ViewChild('text') text: FormControl;
-
-    model= {
-        id: '',
-        score: '',
-        text: ''
-    };
-    errors = {
-        score:{
-            required: 'es necesario dar una puntuacion'
-        },
-
-        text: {
-            required: 'es necesario escribir un comentario'
-        },       
-    };
-    registerError= '';
-
-constructor (
-        private commentService: CommentService,  //¿comment-http.service? dónde stá la interface d comment-list?
-        public errorService: ErrorService
-    ){} //??
-
-onSubmit() {
-    if(this.form.invalid){
-        return;
+  };
+  constructor(private commentService: CommentService, public errorsService: ErrorsService) { }
+  onSubmit() {
+    if (this.form.invalid) {
+      return;
     }
-    this.commentService.comment(this.model)
-    .then(this.onCommentSucess)
-    .catch(this.onCommentError);
-}
-
-
+    this.commentService.create({
+      pizza: this.pizza,
+      ...this.model
+    }).then(() => {
+      this.form.resetForm();
+    });
+  }
 }

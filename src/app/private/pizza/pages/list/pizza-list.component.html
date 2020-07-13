@@ -1,9 +1,8 @@
 <h2 class='pizzaList'>PizzaList</h2>
-<ul>
-    <li *ngFor='let pizza of pizzas'>
-
+<ul  class= "pizzaList__list">
+    <li *ngFor='let pizza of pizzas'  class= 'pizzaList__card'>
            <mat-card (click)="onClick(pizza)">
-               <mat-card-header>
+               <mat-card-header  class= 'pizzaList__title'>
                    <mat-card-title>
                        {{pizza.name}}
                    </mat-card-title>

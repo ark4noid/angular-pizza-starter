@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { PizzaHttpService } from '../../services/pizza-http.service';
 import { Router } from '@angular/router';
+import { environment, ENVIRONMENT } from 'src/app/core/env/env.provider';
 
 @Component({
   selector: 'ps-pizza-list',
@@ -10,7 +11,11 @@ import { Router } from '@angular/router';
 })
 export class PizzaListComponent implements OnInit {
   pizzas: any;
-  constructor(private pizzaService: PizzaHttpService, private router: Router) {
+  constructor(
+    private pizzaService: PizzaHttpService,
+    private router: Router,
+    @Inject(ENVIRONMENT) private env: environment
+  ) {
   }
   ngOnInit() {
     this.getPizzas();
@@ -18,10 +23,10 @@ export class PizzaListComponent implements OnInit {
   getPizzas() {
     this.pizzaService.getAll().then((pizzas) => {
       this.pizzas = pizzas;
-    })
+    });
   }
   getImg(pizza) {
-    return `http://localhost:3005${pizza.img}`;
+    return `${this.env.serverURL}${pizza.img}`;
   }
   onClick(pizza){
     this.router.navigateByUrl(`/pizzas/${pizza.id}`);

@@ -10,7 +10,6 @@ export class AppComponent implements OnInit{
   constructor(private refreshService: RefreshService, private router: Router){}
   ngOnInit(){
     this.refreshService.autoLogin()
-      .then(() => {this.router.navigateByUrl('/')})
       .catch((err) => {
         console.warn(err);
         this.router.navigateByUrl('/public')

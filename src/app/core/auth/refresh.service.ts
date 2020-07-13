@@ -15,6 +15,6 @@ export class RefreshService extends HTTPService {
   autoLogin() {
     return this.refresh().toPromise().then((data: { token: string }) => {
       this.authService.token = data.token;
-    })
+    });
   }
 }

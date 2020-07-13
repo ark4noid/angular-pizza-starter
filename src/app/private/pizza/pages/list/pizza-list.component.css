@@ -1,3 +1,19 @@
 .pizzaList{
-    color: red;
+    color:var(--ps-color-primary--dark);
+}
+.pizzaList__list {
+    display: grid;
+    grid-template-columns: 3fr 3fr;
+    grid-gap: 2rem;
+    justify-content: space-around;
+    margin-bottom: var(--ps-margin-small);
+    list-style: none;  /* para quitar los puntos de list */
+
+}
+.pizzaList__card {
+    cursor: pointer; /* para que sean pintables */
+}
+.pizzaList__title {
+    display: flex;
+    justify-content: center;
 }
